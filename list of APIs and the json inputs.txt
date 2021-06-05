@@ -1,0 +1,91 @@
+http://127.0.0.1:5000/sql/create_table
+
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "mysql",
+    "database": "db_api",
+    "table": "employee",
+    "table_structure": {
+                        "employeeNumber": "int(11) NOT NULL",
+                        "lastName": "varchar(50) NOT NULL",
+                        "firstName": "varchar(50) NOT NULL",
+                        "extension": "varchar(10) NOT NULL",
+                        "email": "varchar(100) NOT NULL",
+                        "officeCode": "varchar(10) NOT NULL",
+                        "reportsTo": "int(11) DEFAULT NULL",
+                        "jobTitle": "varchar(50) NOT NULL"
+                        }
+}
+
+--------------------------------------------------------------------
+http://127.0.0.1:5000/sql/insert_row
+
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "mysql",
+    "database": "db_api",
+    "table": "employee",
+    "row_structure":{
+            "employeeNumber" : 1002,
+            "lastName" : "Murphy",
+            "firstName" : "Diane",
+            "extension" : "x5800",
+            "email" : "dmurphy@classicmodelcars.com",
+            "officeCode" : "1",
+            "reportsTo" : null,
+            "jobTitle" : "President"
+        }    
+    }
+
+-------------------------------------------------------------------
+http://127.0.0.1:5000//sql/bulk_upload
+
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "mysql",
+    "database": "db_api",
+    "table": "employee",
+    "file_location": "sample_csv_bulk_upload.csv"
+    }
+
+-------------------------------------------------------------------
+http://127.0.0.1:5000/sql/update
+
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "mysql",
+    "database": "db_api",
+    "table": "employee",
+    "update_data": {"reportsTo":9999,"email":"nilesh@gmail.com"},
+    "selection_criteria":{"reportsTo": 1102}
+}
+
+-------------------------------------------------------------------
+http://127.0.0.1:5000/sql/delete
+
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "mysql",
+    "database": "db_api",
+    "table": "employee",
+    "selection_criteria":{"reportsTo": 9999}
+}
+
+-------------------------------------------------------------------
+http://127.0.0.1:5000//sql/download_data
+
+{
+    "host": "localhost",
+    "user": "root",
+    "password": "mysql",
+    "database": "db_api",
+    "table": "employee",
+    "selection_criteria":{"jobTitle":"Sales Rep"},
+    "file_location":"C:\\Users\\Lenovo\\Downloads\\Ineuron\\DBoperation_API\\"
+}
+-------------------------------------------------------------------
